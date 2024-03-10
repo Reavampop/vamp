@@ -1,0 +1,128 @@
+$root-font-size: 16px;
+
+// Sizing.
+// Size in pixels / Root font size = Size in rems
+$size-2xs: 4px;
+$size-xs: 8px;
+$size-sm: 12px;
+$size-md: 16px;
+$size-lg: 20px;
+$size-xl: 24px;
+$size-2xl: 28px;
+$size-3xl: 32px;
+$size-4xl: 36px;
+$sizes: (
+  2xs: $size-2xs,
+  xs: $size-xs,
+  sm: $size-sm,
+  md: $size-md,
+  lg: $size-lg,
+  xl: $size-xl,
+  2xl: $size-2xl,
+  3xl: $size-3xl,
+  4xl: $size-4xl,
+);
+
+// Typography.
+// Each theme has a font stack that can be adjusted on the fly.
+$font-sans: var(--font-sans);
+$font-serif: var(--font-serif);
+$font-lead: var(--font-lead);
+
+// Weights.
+$weight-normal: var(--weight-normal);
+$weight-bold: var(--weight-bold);
+
+// Transitions.
+$transition-fast: all 0.1s ease;
+$transition-slow: all 0.25s ease;
+
+// Lightness.
+$lightness-hover: 15%;
+$lightness-focus: 20%;
+
+// Breakpoints.
+$breakpoint-sm: 600px;
+$breakpoint-md: 900px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1500px;
+$breakpoints: (
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+);
+
+// Borders.
+$border-xl: 3px dotted var(--color-accent-tertiary);
+
+// Color palettes.
+// Each palette has an HSL variant that can be adjusted on the fly.
+$palette: (
+  accent: hsl(38, 76%, 71%),
+  failure: hsl(13, 69%, 58%),
+  success: hsl(169, 36%, 60%),
+  accent-secondary: hsl(359, 61%, 85%),
+  accent-tertiary: hsl(60, 1%, 68%),
+);
+
+$palette-hsl: (
+  accent-hsl: (
+    38,
+    76%,
+    71%,
+  ),
+  failure-hsl: (
+    13,
+    69%,
+    58%,
+  ),
+  success-hsl: (
+    169,
+    36%,
+    60%,
+  ),
+  accent-secondary-hsl: (
+    359,
+    61%,
+    85%,
+  ),
+  accent-tertiary-hsl: (
+    60,
+    1%,
+    68%,
+  ),
+);
+
+$palette: (
+  accent-secondary: var(--color-accent-secondary),
+  accent-tertiary: var(--color-accent-tertiary),
+  accent: var(--color-accent),
+  background: var(--color-background),
+  contrast: var(--color-contrast),
+  failure: var(--color-failure),
+  foreground: var(--color-foreground),
+  overlay: var(--color-overlay),
+  success: var(--color-success),
+);
+
+$palette-hsl: (
+  accent-hsl: var(--color-accent-hsl),
+  accent-secondary-hsl: var(--color-accent-secondary-hsl),
+  accent-tertiary-hsl: var(--color-accent-tertiary-hsl),
+  background-hsl: var(--color-background-hsl),
+  contrast-hsl: var(--color-contrast-hsl),
+  failure-hsl: var(--color-failure-hsl),
+  foreground-hsl: var(--color-foreground-hsl),
+  overlay-hsl: var(--color-overlay-hsl),
+  success-hsl: var(--color-success-hsl),
+);
+
+// Responsive gutters
+:root {
+  --gutters: #{$size-lg};
+
+  @media (min-width: $breakpoint-md) {
+    --gutters: #{calc($size-3xl + $size-xs)};
+  }
+}

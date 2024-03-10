@@ -1,0 +1,58 @@
+// Heading text.
+// Used for section headings.
+.text-heading {
+  @include text-lead(40px);
+}
+
+// Menu text.
+// Used for menu items and similar labels.
+.text-menu {
+  @include text-lead(19px);
+}
+
+.text-menu-md {
+  @include text-lead(16px);
+}
+
+.text-menu-sm {
+  @include text-lead(12px);
+}
+
+// Body text.
+// Used for paragraphs, descriptions, and all the other general textual
+// entities.
+.text-body {
+  @include text-sans(20px);
+}
+
+.text-body-md {
+  @include text-sans(18px);
+}
+
+.text-body-sm {
+  @include text-sans(16px);
+}
+
+.text-body-xs {
+  @include text-sans(12px);
+}
+
+// Title text.
+// Used for all sorts of highlights and titles.
+.text-title {
+  @include text-serif(28px);
+}
+
+.text-title-sm {
+  @include text-serif(24px);
+}
+
+// Subtitle text.
+// Used for descriptions and entities next to the titles.
+.text-subtitle {
+  @include text-serif(18px);
+}
+
+.text-subtitle-sm {
+  @include text-serif(16px);
+}

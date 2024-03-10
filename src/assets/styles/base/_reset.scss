@@ -1,0 +1,72 @@
+:root {
+  font-size: $root-font-size;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: $root-font-size;
+  font-weight: $weight-normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+.text-bold {
+  font-weight: $weight-bold;
+}
+
+a,
+button {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a,
+button,
+input {
+  outline: 0;
+  border-radius: 1px;
+  transition: $transition-fast;
+  outline: 2px solid transparent;
+
+  &:focus {
+    outline-color: var(--color-success);
+  }
+}
+
+@include when-theme-neobrutalism {
+  a,
+  button,
+  input {
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+a:is(:hover, :focus) {
+  text-decoration: underline;
+}
+
+@include when-theme-dark {
+  p a {
+    color: var(--color-success);
+
+    &:visited {
+      color: var(--color-failure);
+    }
+  }
+}
+
+ul,
+li {
+  list-style-type: none;
+}

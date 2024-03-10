@@ -1,0 +1,58 @@
+.view-article__full {
+  .app-article {
+    min-height: 600px;
+    flex-direction: column;
+    color: map-get($palette, "contrast");
+
+    .app-article__media {
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+
+      .app-article__thumbnail {
+        height: 100%;
+        filter: brightness(0.5);
+      }
+    }
+
+    .app-article__body {
+      z-index: 1;
+      gap: 29px;
+      margin: auto;
+      max-width: 768px;
+      align-items: center;
+      padding: calc($size-3xl + $size-lg);
+
+      > * {
+        color: var(--color-background) !important;
+      }
+
+      .app-article__title {
+        text-align: center;
+      }
+
+      .app-article__description {
+        display: none;
+      }
+    }
+  }
+}
+
+@include when-theme-dark {
+  .view-article__full {
+    .app-article__body > * {
+      color: var(--color-contrast) !important;
+    }
+  }
+}
+
+@include when-theme-neobrutalism {
+  .view-article__full {
+    .app-article__body > * {
+      color: var(--color-background) !important;
+    }
+  }
+}

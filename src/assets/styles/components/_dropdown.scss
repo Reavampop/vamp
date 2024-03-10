@@ -1,0 +1,43 @@
+.app-dropdown {
+  position: relative;
+  display: inline-block;
+
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    border: 1px solid var(--color-contrast);
+    background-color: var(--color-background);
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.4);
+  }
+
+  &__item {
+    width: 100%;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    &:is(:hover, :focus):not(:disabled) {
+      color: var(--color-background);
+      background-color: var(--color-contrast);
+    }
+  }
+}
+
+@include when-theme-neobrutalism {
+  .app-dropdown {
+    &__menu {
+      padding: $size-sm;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      top: calc(100% + #{$size-md});
+      border: 1px solid var(--color-contrast);
+    }
+
+    li:not(:last-child) {
+      margin-bottom: $size-sm;
+    }
+  }
+}

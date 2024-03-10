@@ -1,0 +1,167 @@
+.app-header {
+  z-index: 1;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: var(--gutters);
+  padding-bottom: var(--gutters);
+  border-bottom: $border-xl;
+
+  .app-header__menu {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+
+    @include breakpoint-md {
+      height: 65px;
+
+      // The logo needs to be translated to the middle on the larger screens.
+      .app-logo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) !important;
+      }
+    }
+  }
+
+  .app-header__nav {
+    text-align: center;
+
+    ul {
+      // Exact size seized from figma lol
+      gap: 71px;
+    }
+  }
+}
+
+a.nav-link {
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 4px;
+    background-color: var(--color-success);
+    width: 0;
+    position: absolute;
+    bottom: -4px;
+    border-radius: 4px;
+    transition: $transition-slow;
+    left: 0;
+    opacity: 0;
+  }
+
+  &.active::before {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.app-header__overlay {
+  z-index: 10;
+  display: grid;
+  transition: $transition-slow;
+  grid-template-rows: auto 1fr;
+  backdrop-filter: blur(50px);
+  background-color: var(--color-overlay);
+  -webkit-backdrop-filter: blur(50px);
+
+  // The overlay takes the whole viewport by a storm.
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+
+  ul {
+    gap: 0.5rem;
+  }
+
+  footer {
+    text-align: right;
+    @include text-serif(16px);
+
+    a {
+      color: var(--color-success);
+
+      &:visited {
+        color: var(--color-failure);
+      }
+    }
+  }
+}
+
+// Neobrutalist theme
+@include when-theme-neobrutalism {
+  .app-header {
+    padding: 0;
+    border-bottom: none;
+    box-shadow: var(--shadow);
+    padding-left: var(--padding);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-contrast);
+    background-color: #cceeff !important;
+
+    @include breakpoint-md {
+      padding: var(--padding);
+    }
+
+    &__menu {
+      align-items: center;
+      height: fit-content;
+
+      button {
+        padding: calc(var(--padding-half) / 2) var(--padding-half);
+
+        &:first-child {
+          margin-right: $size-xs;
+        }
+
+        &:is(:hover, :focus):not(:disabled) {
+          background-color: var(--color-accent);
+        }
+      }
+    }
+
+    &__nav {
+      @include nav();
+    }
+
+    .app-logo {
+      @include breakpoint-md {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+      }
+
+      @include breakpoint-lg {
+        top: 12.5%;
+        left: 50%;
+        transform: translateX(-50%) !important;
+      }
+    }
+  }
+
+  a.nav-link {
+    &::before {
+      content: "";
+      display: none;
+    }
+  }
+
+  .app-header__overlay {
+    .container {
+      padding: var(--padding);
+    }
+
+    button {
+      padding: calc(var(--padding-half) / 2) var(--padding-half);
+
+      &:is(:hover, :focus):not(:disabled) {
+        background-color: var(--color-accent);
+      }
+    }
+  }
+}

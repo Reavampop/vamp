@@ -1,0 +1,125 @@
+.sr-only {
+  top: -9999px;
+  left: -9999px;
+  position: absolute;
+}
+
+[data-hidden="true"] {
+  display: none !important;
+}
+
+@include when-theme-neobrutalism {
+  .neobrutalist\:hidden {
+    display: none !important;
+  }
+}
+
+.text-faded {
+  opacity: 0.5;
+}
+
+// Display rules.
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+// Breakpoint-specific rules.
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  @media (min-width: $breakpoint-value) {
+    // Results in sm:hidden, md:hidden, lg:hidden, xl:hidden
+    .#{$breakpoint-name}\:hidden {
+      display: none;
+    }
+
+    .#{$breakpoint-name}\:block {
+      display: block;
+    }
+
+    .#{$breakpoint-name}\:flex {
+      display: flex;
+    }
+
+    .#{$breakpoint-name}\:row {
+      flex-direction: row;
+    }
+
+    .#{$breakpoint-name}\:column {
+      flex-direction: column;
+    }
+
+    .#{$breakpoint-name}\:justify-center {
+      justify-content: center;
+    }
+
+    .#{$breakpoint-name}\:justify-between {
+      justify-content: space-between;
+    }
+
+    .#{$breakpoint-name}\:align-center {
+      align-items: center;
+    }
+
+    .#{$breakpoint-name}\:align-start {
+      align-items: flex-start;
+    }
+
+    .#{$breakpoint-name}\:align-end {
+      align-items: flex-end;
+    }
+  }
+}
+
+// Utilities from the color palettes.
+@each $key, $value in $palette {
+  .text-#{$key} {
+    color: var(--color-#{$key});
+  }
+
+  .bg-#{$key} {
+    background-color: var(--color-#{$key});
+  }
+}

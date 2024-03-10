@@ -1,0 +1,29 @@
+.badge {
+  @include badge(14px);
+}
+
+.badge-outlined {
+  @include badge-outlined(14px);
+}
+
+.badge-sm {
+  @include badge(10px);
+}
+
+.badge-outlined-sm {
+  @include badge-outlined(10px);
+}
+
+.badge-success {
+  @include badge(14px, var(--color-success));
+}
+
+@include when-theme-neobrutalism {
+  .badge {
+    background-color: var(--color-accent-tertiary) !important;
+  }
+
+  .badge-success {
+    background-color: var(--color-success) !important;
+  }
+}

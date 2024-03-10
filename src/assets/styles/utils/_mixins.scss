@@ -1,0 +1,193 @@
+@mixin text-lead($font-size) {
+  font-size: getRemFrom($font-size);
+  font-family: $font-lead;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@mixin text-sans($font-size) {
+  font-size: getRemFrom($font-size);
+  font-family: $font-sans;
+  font-weight: $weight-normal;
+}
+
+@mixin text-serif($font-size) {
+  font-size: getRemFrom($font-size);
+  font-family: $font-serif;
+  font-weight: $weight-normal;
+}
+
+/// A wrapped textual entity.
+@mixin badge($font-size: $root-font-size, $bg-color: var(--color-contrast)) {
+  @include text-sans($font-size);
+  display: inline-flex;
+  align-items: center;
+  gap: calc($size-xs + 2px);
+  text-transform: uppercase;
+  transition: $transition-fast;
+  color: var(--color-background);
+  background-color: $bg-color;
+  padding: calc($size-xs - 2px) calc($size-sm + 2px);
+
+  // Notice that the border is always there.
+  border: 1px solid var(--color-contrast);
+}
+
+@mixin badge-outlined($font-size: $root-font-size) {
+  @include badge($font-size);
+
+  // Notice the color inversion as compared to the normal badge.
+  color: var(--color-contrast);
+  background-color: var(--color-background);
+}
+
+/// A button component.
+@mixin button($font-size: $root-font-size) {
+  @include badge($font-size);
+
+  &:hover {
+    // We're using the HSL variants of our colors and reducing their opacity
+    // with the help of the HSLA function.
+    border-color: hsla(var(--color-contrast-hsl), 75%);
+    background-color: hsla(var(--color-contrast-hsl), 75%);
+  }
+
+  &:focus {
+    border-color: hsla(var(--color-contrast-hsl), 80%);
+    background-color: hsla(var(--color-contrast-hsl), 80%);
+  }
+}
+
+@mixin nav {
+  border-radius: var(--radius);
+  border: 1px solid var(--color-contrast);
+
+  ul {
+    gap: 0;
+  }
+
+  li {
+    width: 100%;
+
+    a {
+      width: 100%;
+      display: inline-block;
+      padding: var(--padding);
+      box-shadow: var(--shadow);
+
+      &:focus {
+        border-color: var(--color-failure);
+      }
+
+      &:is(:hover, :focus) {
+        text-decoration: none;
+        background-color: var(--color-overlay);
+      }
+
+      &.active {
+        text-decoration: underline;
+      }
+    }
+
+    &:not(:last-child) a {
+      border-right: 1px solid var(--color-contrast);
+    }
+
+    &:first-child a {
+      border-top-left-radius: var(--radius);
+      border-bottom-left-radius: var(--radius);
+    }
+
+    &:last-child a {
+      border-top-right-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+    }
+  }
+}
+
+@mixin button-outlined($font-size: $root-font-size) {
+  @include badge-outlined($font-size);
+
+  &:hover {
+    background-color: hsla(var(--color-contrast-hsl), 15%);
+  }
+
+  &:focus {
+    background-color: hsla(var(--color-contrast-hsl), 20%);
+  }
+}
+
+@mixin button-transparent($font-size: $root-font-size) {
+  @include badge($font-size);
+  border: 0;
+  color: var(--color-contrast);
+  gap: calc($size-xs - 4px);
+  padding: calc($size-xs - 4px);
+  background-color: transparent;
+}
+
+// Breakpoints.
+// Sadly we can't loop over the breakpoints map cuz dynamic mixins don't exist.
+@mixin breakpoint-sm {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin breakpoint-md {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin breakpoint-lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin breakpoint-xl {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// Truncate the lines as per se.
+@mixin text-truncate($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines; /* number of lines to show */
+  line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+@mixin neobrutalist-box(
+  $padding: var(--padding),
+  $radius: var(--radius),
+  $is-focusable: false
+) {
+  padding: $padding;
+  border-radius: $radius;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-contrast);
+
+  @if $is-focusable {
+    &:is(:focus, :focus-within) {
+      box-shadow: var(--shadow-focus);
+    }
+  }
+}
+
+@mixin when-theme-dark {
+  [data-theme="dark"] {
+    @content;
+  }
+}
+
+@mixin when-theme-neobrutalism {
+  [data-theme="neobrutalist"] {
+    @content;
+  }
+}

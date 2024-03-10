@@ -1,0 +1,66 @@
+[data-theme="neobrutalist"] {
+  // Typography.
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-serif: "Space Grotesk", sans-serif;
+  --font-lead: "Space Grotesk", sans-serif;
+
+  // Weights.
+  --weight-normal: 400;
+  --weight-bold: 700;
+
+  // Color HSLs
+  --color-accent-hsl: 200, 100%, 60%;
+  --color-failure-hsl: 0, 100%, 50%;
+  --color-success-hsl: 158, 100%, 62%;
+  --color-accent-secondary-hsl: 302, 100%, 93%;
+  --color-accent-tertiary-hsl: 60, 100%, 50%;
+
+  // Colors
+  --color-accent: hsl(var(--color-accent-hsl));
+  --color-failure: hsl(var(--color-failure-hsl));
+  --color-success: hsl(var(--color-success-hsl));
+  --color-accent-secondary: hsl(var(--color-accent-secondary-hsl));
+  --color-accent-tertiary: hsl(var(--color-accent-tertiary-hsl));
+
+  // Dark Color HSLs
+  --color-contrast-hsl: 0, 0%, 0%;
+  --color-foreground-hsl: 0, 0%, 100%;
+  --color-background-hsl: 0, 0%, 100%;
+  --color-overlay-hsl: 300, 100%, 97%;
+
+  // Dark Colors
+  --color-contrast: hsl(var(--color-contrast-hsl));
+  --color-foreground: hsla(var(--color-foreground-hsl), 0.2);
+  --color-background: hsl(var(--color-background-hsl));
+  --color-overlay: hsl(var(--color-overlay-hsl));
+
+  // Padding
+  --padding: #{$size-md};
+  --padding-desktop: #{$size-3xl};
+  --padding-half: calc(var(--padding) / 2);
+
+  // Gutters
+  --gutters: #{$size-md};
+  --gutters-desktop: #{$size-3xl};
+  --gutters-half: calc(var(--gutters) / 2);
+
+  // Radii
+  --radius: #{$size-xs};
+  --radius-desktop: #{$size-sm};
+  --radius-half: calc(var(--radius) / 2);
+
+  // Shadows
+  --shadow: 0 4px 0 0 var(--color-contrast);
+  --shadow-focus: var(--shadow), 0 0 0 4px violet;
+
+  @include breakpoint-md {
+    // Padding
+    --padding: var(--padding-desktop);
+
+    // Gutters
+    --gutters: var(--gutters-desktop);
+
+    // Radii
+    --radius: var(--radius-desktop);
+  }
+}

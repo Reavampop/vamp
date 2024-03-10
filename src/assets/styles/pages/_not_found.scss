@@ -1,0 +1,23 @@
+// NotFound.scss
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-content {
+  text-align: center;
+
+  h1 {
+    @include text-serif(160px);
+  }
+
+  p {
+    margin-top: 1rem;
+    @include text-serif(32px);
+  }
+
+  p:last-child {
+    font-size: 18px;
+  }
+}

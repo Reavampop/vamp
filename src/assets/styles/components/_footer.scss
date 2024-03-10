@@ -1,0 +1,132 @@
+.app-footer {
+  padding: var(--gutters) 0;
+  margin-bottom: var(--gutters);
+  border-top: $border-xl;
+  border-bottom: $border-xl;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutters);
+
+  &__logo {
+    align-self: flex-start;
+    text-transform: capitalize;
+
+    &,
+    a {
+      font-size: 16px;
+    }
+  }
+
+  .app-footer__row {
+    display: flex;
+    gap: var(--gutters);
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include breakpoint-md {
+      flex-direction: row;
+    }
+  }
+
+  .app-footer__menus {
+    flex-grow: 1;
+    max-width: 768px;
+    gap: var(--gutters);
+    grid-template-columns: repeat(3, 1fr);
+    display: none;
+
+    @include breakpoint-md {
+      display: grid;
+    }
+  }
+
+  .app-footer__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .newsletter {
+    min-width: 40%;
+  }
+
+  > nav {
+    @include breakpoint-sm {
+      padding: 0 var(--gutters);
+    }
+
+    ul {
+      gap: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+// Neobrutalist theme
+@include when-theme-neobrutalism {
+  .app-footer {
+    margin-bottom: 0;
+    padding: var(--padding);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-contrast);
+    background-color: var(--color-background) !important;
+
+    &__logo {
+      a {
+        border: 0;
+        padding: 0;
+        background-color: transparent;
+      }
+    }
+
+    &__menus {
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      @include neobrutalist-box();
+      justify-content: space-between;
+
+      @include breakpoint-md {
+        border: 0;
+        padding: 0;
+        max-width: 40%;
+        box-shadow: none;
+      }
+
+      @include breakpoint-lg {
+        max-width: 30%;
+      }
+    }
+
+    .newsletter {
+      @include breakpoint-md {
+        @include neobrutalist-box();
+      }
+    }
+
+    nav {
+      padding: 0;
+      display: none;
+      @include nav();
+
+      @include breakpoint-md {
+        display: block;
+      }
+
+      ul {
+        gap: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
+      a {
+        text-align: center;
+      }
+    }
+  }
+}
