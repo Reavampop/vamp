@@ -54,7 +54,7 @@ export default function HeaderOverlay({
         <footer className="container">
           Made by{" "}
           <a href={WEBSITE} ref={lastLinkRef}>
-            <strong>Kashan</strong>
+            <strong>Bisaya</strong>
           </a>
         </footer>
       </m.section>

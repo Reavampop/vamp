@@ -69,15 +69,14 @@ export default function FooterComponent({
   return (
     <footer {...props} className={`app-footer ${className}`}>
       <div className="app-footer__logo text-menu-sm">
-        <LogoComponent />
-        {" "}by{" "}
+        <LogoComponent /> by{" "}
         <a
           href={WEBSITE}
           target="_blank"
           rel="noopener noreferrer"
           className="text-failure"
         >
-          Kashan
+          Bisaya
         </a>
       </div>
       <div className="app-footer__row">
