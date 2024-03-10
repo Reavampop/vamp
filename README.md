@@ -1,8 +1,11 @@
-# Today - News for everyone
+MyToday's Latest News App
+Welcome to MyToday's Latest News App! This application provides users with up-to-date news from various sources around the world. Users can stay informed about current events, trends, and topics of interest with ease.
 
-We are your source for the latest news, delivering the most up-to-date stories from around the world. Our dedicated team of journalists is committed to providing you with accurate and reliable news coverage.
-
-Just Kidding! This is a fun side project of [Kashan](https://github.com/oikashan), built with React, TypeScript, and Vite. The news articles are real—they're coming from [NewsAPI](https://www.newsapi.org)—but the rest of the site is just a dummy.
-
-You can find the source code on [GitHub](https://github.com/oikashan/today-news).
-Contributions are welcome!
+Features
+Latest News: Get access to the most recent news articles from trusted sources.
+Customizable Categories: Choose from a variety of categories such as World News, Technology, Business, Entertainment, and more.
+Search Functionality: Search for specific news articles based on keywords or topics.
+Save Articles: Bookmark articles for later reading.
+Share News: Share interesting articles with friends and family via social media, email, or messaging apps.
+Offline Reading: Access previously viewed articles even without an internet connection.
+User-Friendly Interface: Easy navigation and intuitive design for a seamless user experience.
